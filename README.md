@@ -1,6 +1,6 @@
-# place_space
+# Tesla Clone
 
-A new Flutter project.
+A new Flutter project cloning the Tesla landing page for mobile and desktop. https://www.tesla.com
 
 ## Getting Started
 
