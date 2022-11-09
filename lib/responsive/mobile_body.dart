@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:place_space/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:place_space/widgets/bouncing_icon.dart';
 import 'package:place_space/widgets/custom_button.dart';
+import 'package:place_space/widgets/custom_icon.dart';
 
 class MobileBody extends StatefulWidget {
   const MobileBody({super.key});
@@ -129,9 +129,12 @@ class _MobileBodyState extends State<MobileBody> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  // const SizedBox(
+                  //   height: 450,
+                  // ),
                   CustomButton(
                     inputText: 'Custom Order',
-                    height: 44,
+                    height: 36,
                     onClickButton: () {},
                     buttonColor: const Color.fromARGB(221, 29, 27, 27),
                     textColor: const Color.fromARGB(255, 216, 213, 213),
@@ -141,23 +144,23 @@ class _MobileBodyState extends State<MobileBody> {
                   const SizedBox(height: 12),
                   CustomButton(
                     inputText: 'Existing Inventory',
-                    height: 44,
+                    height: 36,
                     onClickButton: () {},
                     buttonColor: const Color.fromARGB(255, 216, 213, 213),
                     textColor: const Color.fromARGB(221, 29, 27, 27),
                     textSize: 16,
                     width: MediaQuery.of(context).size.width * 0.85,
                   ),
-                  const BouncingIcon(
-                    icon: Icons.arrow_downward,
-                    iconSize: 20,
+
+                  // Animated Bouncing icon
+                  CustomIcon(
+                    icon: Icons.expand_more,
+                    iconSize: 30,
                     iconColor: kTextPrimary,
-                    iconRadius: Radius.circular(0),
                     background: Colors.transparent,
+                    onPress: () {},
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
+                  // const SizedBox(height: 5),
                 ],
               ),
             )
