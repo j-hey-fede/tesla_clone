@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:place_space/constants/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:place_space/widgets/bouncing_icon.dart';
 import 'package:place_space/widgets/custom_button.dart';
 
 class MobileBody extends StatefulWidget {
@@ -147,8 +148,15 @@ class _MobileBodyState extends State<MobileBody> {
                     textSize: 16,
                     width: MediaQuery.of(context).size.width * 0.85,
                   ),
+                  const BouncingIcon(
+                    icon: Icons.arrow_downward,
+                    iconSize: 20,
+                    iconColor: kTextPrimary,
+                    iconRadius: Radius.circular(0),
+                    background: Colors.transparent,
+                  ),
                   const SizedBox(
-                    height: 90,
+                    height: 20,
                   ),
                 ],
               ),

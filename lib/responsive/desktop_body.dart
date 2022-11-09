@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:place_space/constants/colors.dart';
+import 'package:place_space/widgets/bouncing_icon.dart';
 import 'package:place_space/widgets/custom_button.dart';
 
 class DesktopBody extends StatefulWidget {
@@ -196,8 +197,15 @@ class _DesktopBodyState extends State<DesktopBody> {
                         ),
                       ],
                     ),
+                    const BouncingIcon(
+                      icon: Icons.arrow_downward,
+                      iconSize: 30,
+                      iconColor: kTextPrimary,
+                      iconRadius: Radius.circular(0),
+                      background: Colors.transparent,
+                    ),
                     const SizedBox(
-                      height: 90,
+                      height: 20,
                     ),
                   ],
                 ),
