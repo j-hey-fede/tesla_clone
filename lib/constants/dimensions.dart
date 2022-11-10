@@ -1,1 +1,1 @@
-const mobileScreen = 640;
+const mobileScreen = 720;
