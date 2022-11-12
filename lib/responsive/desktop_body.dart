@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:place_space/constants/colors.dart';
+import 'package:place_space/data/tesla_data.dart';
 import 'package:place_space/widgets/desktop_bottom_buttons.dart';
 import 'package:place_space/widgets/desktop_side_menu.dart';
 import 'package:place_space/widgets/desktop_top_bar.dart';
@@ -15,6 +16,8 @@ class DesktopBody extends StatefulWidget {
 
 class _DesktopBodyState extends State<DesktopBody> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+  final data = carList;
 
   @override
   Widget build(BuildContext context) {
@@ -56,25 +59,42 @@ class _DesktopBodyState extends State<DesktopBody> {
       endDrawer: const Drawer(
         child: DesktopSideMenu(),
       ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            Image.asset(
-              'assets/images/model3W.jpg',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
-            ),
-            const Center(child: TextBlock()),
-            const Padding(
-              padding: EdgeInsets.all(12.0),
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+        return ListView.builder(
+          shrinkWrap: true,
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            return Container(
+              height: constraints.maxHeight,
               child: Center(
-                child: DesktopBottomButtons(),
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(
+                      data[index].imageWide,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
+                    Center(
+                      child: TextBlock(
+                        headerText: data[index].name,
+                        inputText: data[index].content,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.all(12.0),
+                      child: Center(
+                        child: DesktopBottomButtons(),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            )
-          ],
-        ),
-      ),
+            );
+          },
+        );
+      }),
     );
   }
 }

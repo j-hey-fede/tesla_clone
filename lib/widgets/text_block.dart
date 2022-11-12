@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 
 class TextBlock extends StatelessWidget {
+  final String headerText;
+  final String inputText;
+
   const TextBlock({
     Key? key,
+    required this.headerText,
+    required this.inputText,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
-        SizedBox(
+      children: [
+        const SizedBox(
           height: 150,
         ),
         Text(
-          'Model 3',
-          style: TextStyle(
+          headerText,
+          style: const TextStyle(
             fontSize: 48,
             fontWeight: FontWeight.bold,
           ),
         ),
         Text(
-          'Order Online for Touchless Delivery',
-          style: TextStyle(
+          inputText,
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),

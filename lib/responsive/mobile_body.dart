@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:place_space/constants/colors.dart';
+import 'package:place_space/data/tesla_data.dart';
 import 'package:place_space/widgets/logo_block.dart';
 import 'package:place_space/widgets/mobile_bottom_buttons.dart';
 import 'package:place_space/widgets/mobile_side_menu.dart';
@@ -14,6 +15,8 @@ class MobileBody extends StatefulWidget {
 
 class _MobileBodyState extends State<MobileBody> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+
+  final data = carList;
 
   @override
   Widget build(BuildContext context) {
@@ -53,22 +56,41 @@ class _MobileBodyState extends State<MobileBody> {
       endDrawer: const Drawer(
         child: MobileSideMenu(),
       ),
-      body: Center(
-        child: Stack(
-          children: <Widget>[
-            Image.asset('assets/images/model3.jpg',
-                fit: BoxFit.cover,
-                height: double.infinity,
-                width: double.infinity),
-            const Center(
-              child: TextBlock(),
-            ),
-            const Center(
-              child: MobileBottomButtons(),
-            )
-          ],
-        ),
-      ),
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+        return ListView.builder(
+          shrinkWrap: true,
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            return Container(
+              height: constraints.maxHeight,
+              child: Center(
+                child: Stack(
+                  children: <Widget>[
+                    Image.asset(data[index].image,
+                        fit: BoxFit.cover,
+                        height: double.infinity,
+                        width: double.infinity),
+                    Center(
+                      child: TextBlock(
+                        headerText: data[index].name,
+                        inputText: data[index].content,
+                      ),
+                    ),
+                    const Center(
+                      child: MobileBottomButtons(),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
+        );
+      }),
     );
   }
 }
+
+// OUR FONT COLORS AND IMAGES AREN'T PERFECT, BECAUSE WE
+// ARE NOT TESLA AND ARE LIMITED BY WHAT CAN BE FOUND
+// ON THE INTERNET, BUT THE STRUCTURE IS THERE!
