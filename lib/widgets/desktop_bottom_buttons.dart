@@ -43,7 +43,7 @@ class DesktopBottomButtons extends StatelessWidget {
         CustomIcon(
           icon: Icons.expand_more,
           iconSize: 30,
-          iconColor: kTextPrimary,
+          iconColor: Colors.white70,
           background: Colors.transparent,
           onPress: () {},
         ),

@@ -61,11 +61,11 @@ class _DesktopBodyState extends State<DesktopBody> {
       ),
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        return ListView.builder(
-          shrinkWrap: true,
+        return PageView.builder(
+          scrollDirection: Axis.vertical,
           itemCount: data.length,
           itemBuilder: (context, index) {
-            return Container(
+            return SizedBox(
               height: constraints.maxHeight,
               child: Center(
                 child: Stack(

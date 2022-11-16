@@ -58,11 +58,11 @@ class _MobileBodyState extends State<MobileBody> {
       ),
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
-        return ListView.builder(
-          shrinkWrap: true,
+        return PageView.builder(
+          scrollDirection: Axis.vertical,
           itemCount: data.length,
           itemBuilder: (context, index) {
-            return Container(
+            return SizedBox(
               height: constraints.maxHeight,
               child: Center(
                 child: Stack(
@@ -90,7 +90,3 @@ class _MobileBodyState extends State<MobileBody> {
     );
   }
 }
-
-// OUR FONT COLORS AND IMAGES AREN'T PERFECT, BECAUSE WE
-// ARE NOT TESLA AND ARE LIMITED BY WHAT CAN BE FOUND
-// ON THE INTERNET, BUT THE STRUCTURE IS THERE!
